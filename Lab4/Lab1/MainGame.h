@@ -25,6 +25,8 @@ private:
 	void gameLoop();
 	void drawGame();
 	void CheckCollisions();
+	void OnKeyDown(SDL_Keycode keyCode);
+	void OnQuit();
 
 	Display _gameDisplay;
 	GameState _gameState;

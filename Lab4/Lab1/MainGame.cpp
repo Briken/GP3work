@@ -70,8 +70,14 @@ void MainGame::processInput()
 		switch (evnt.type)
 		{
 			case SDL_QUIT:
-				_gameState = GameState::EXIT;
+				OnQuit();
 				break;
+			case SDL_KEYDOWN:
+				OnKeyDown(evnt.key.keysym.sym);
+				if (evnt.key.keysym.sym == SDLK_ESCAPE)
+				{
+					OnQuit();
+				}
 		}
 	}
 	
@@ -121,4 +127,29 @@ void MainGame::CheckCollisions()
 
 	//	}
 	//}
+}
+
+void MainGame::OnKeyDown(SDL_Keycode keyCode)
+{
+	if (keyCode == SDLK_w)
+	{
+		myCamera.MoveForward(10);
+	}
+	if (keyCode == SDLK_a)
+	{
+		myCamera.MoveRight(-20);
+	}
+	if (keyCode == SDLK_s)
+	{
+		myCamera.MoveForward(-20);
+	}
+	if (keyCode == SDLK_d)
+	{
+		myCamera.MoveRight(20);
+	}
+}
+
+void MainGame::OnQuit()
+{
+	_gameState = GameState::EXIT;
 }
