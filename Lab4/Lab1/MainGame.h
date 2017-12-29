@@ -6,6 +6,7 @@
 #include "Mesh.h"
 #include "Texture.h"
 #include "transform.h"
+#include "Audio.h"
 #include <vector>
 
 enum class GameState{PLAY, EXIT};
@@ -35,7 +36,8 @@ private:
 	Camera myCamera;
 	//std::vector<Mesh*> sceneGraph;
 	Mesh* sceneGraph[1];
-	string modelPaths[1] = {"../res/monkey3.obj" };
+	Audio audioManager;
+	string modelPaths[1] = {"../res/Mew_Pokemon_OBJ.obj" };
 
 	int noModels;
 

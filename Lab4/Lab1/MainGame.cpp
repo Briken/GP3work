@@ -47,7 +47,7 @@ void MainGame::initSystems()
 	//{
 		sceneGraph[0]->loadModel(modelPaths[0]);
 	//}
-
+	//audioManager.GetEngine()->play2D("",GL_TRUE);
 	myCamera.initCamera(glm::vec3(0, 0, -5), 70.0f, (float)_gameDisplay.getWidth()/_gameDisplay.getHeight(), 0.01f, 1000.0f);
 	counter = 0.0f;
 }
@@ -89,8 +89,8 @@ void MainGame::drawGame()
 	_gameDisplay.clearDisplay(0.0f, 0.0f, 0.0f, 1.0f);
 	
 	Shader shader("../res/shader"); //new shader
-	Texture texture("../res/bricks.jpg"); //load texture
-	Texture texture1("../res/water.jpg"); //load texture
+	Texture texture1("../res/bricks.jpg"); //load texture
+	Texture texture("../res/water.jpg"); //load texture
 	
 	sceneGraph[0]->transform.SetPos(glm::vec3(sinf(counter), 0.0, 0.0));
 	sceneGraph[0]->transform.SetRot(glm::vec3(0.0, counter * 5, counter * 5));
